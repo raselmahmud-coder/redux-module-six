@@ -1,23 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchVideos } from "../../features/Videos/VideosSlice";
 import Spinner from "../Spinner/Spinner";
 import VideoGridItem from "./VideoGridItem";
 
 const VideosGrid = () => {
   const dispatch = useDispatch();
+  const { pageNumber } = useParams();
+  console.log(pageNumber);
   const { isError, error, isLoading, videos } = useSelector(
     (state) => state.videos,
   );
-  const { tags, search } = useSelector(state => state.filter);
-
+  const { tags, search } = useSelector((state) => state.filter);
+  const limit = 2;
   useEffect(() => {
-    dispatch(fetchVideos({tags, search}));
-  }, [dispatch, tags, search]);
+    dispatch(fetchVideos({ tags, search, pageNumber, limit }));
+  }, [dispatch, tags, search, pageNumber]);
   let content;
   if (isLoading) content = <Spinner />;
-
-  if (!isLoading && isError) content = <div className="col-span-12">{error}</div>;
+  if (!isLoading && isError)
+    content = <div className="col-span-12">{error}</div>;
   if (!isError && !isLoading && videos?.length === 0)
     content = <div className="col-span-12"> There is no videos</div>;
   if (!isError && !isLoading && videos?.length > 0)

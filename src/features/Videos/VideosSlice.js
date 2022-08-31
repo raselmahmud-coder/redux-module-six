@@ -2,15 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getVideos } from "./VideosAPI";
 const initialState = {
   videos: [],
+  totalVideos: 0,
   isLoading: false,
   isError: false,
   error: "",
 };
 
-export const fetchVideos = createAsyncThunk("fetch/videos", async ({tags, search}) => {
-  const videos = await getVideos(tags, search);
-  return videos;
-});
+export const fetchVideos = createAsyncThunk(
+  "fetch/videos",
+  async ({tags, search, pageNumber, limit }) => {
+    const videos = await getVideos(tags, search, pageNumber, limit);
+    return videos;
+  },
+);
 
 const videosSlice = createSlice({
   name: "videos",
@@ -24,6 +28,7 @@ const videosSlice = createSlice({
       .addCase(fetchVideos.fulfilled, (state, action) => {
         state.isLoading = false;
         state.videos = action.payload;
+        state.totalVideos = action.payload.length;
       })
       .addCase(fetchVideos.rejected, (state, action) => {
         state.isError = true;

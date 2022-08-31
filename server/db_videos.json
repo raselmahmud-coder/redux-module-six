@@ -104,6 +104,21 @@
             "tags": ["tailwind", "css", "ui"],
             "likes": 0,
             "unlikes": 0
+        },
+        {
+            "id": 8,
+            "title": "Why GraphQL | GraphQL vs REST API ",
+            "description": "This is first video of my complete GraphQL course with Node js Apollo server, React and Apollo Client in Hindi 00:00 Introduction 01:06 Ove Fetching in REST API",
+            "author": "CODERS NEVER QUIT",
+            "avatar": "https://yt3.ggpht.com/me73iAKgUBSVy4Zt8lln9ozrcfHJ4U2Wl92oyoOXZsv1CA52fBD4z321dUUGh7uhnU81ph-mKg=s88-c-k-c0x00ffffff-no-rj",
+            "date": "Oct 15, 2021",
+            "duration": "10:12",
+            "views": "2.1k",
+            "link": "https://www.youtube.com/embed/NNNcoWZ6Ih0",
+            "thumbnail": "https://i.ytimg.com/vi/NNNcoWZ6Ih0/hqdefault_26866.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCKIYVAX2fRYpBg5uS5dAn6DcpWNw",
+            "tags": ["Graphql", "RestAPI", "React"],
+            "likes": 0,
+            "unlikes": 0
         }
     ],
     "tags": [
@@ -146,6 +161,14 @@
         {
             "id": 10,
             "title": "router"
+        },
+        {
+            "id":11,
+            "title":"Graphql"
+        },
+        {
+            "id":12,
+            "title":"RestAPI"
         }
     ]
 }

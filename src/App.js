@@ -11,6 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/:pageNumber" element={<Home />} />
           <Route path="/videos/:videoId" element={<VideoDetails />} />
         </Routes>
 
